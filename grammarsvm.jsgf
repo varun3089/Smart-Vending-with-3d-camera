@@ -1,0 +1,4 @@
+#JSGF V1.0;
+grammar Digits;
+public <Digits> = ( <digit> ) + ;
+<digit> = ( search | next | back | buy | products|show|logout|close);

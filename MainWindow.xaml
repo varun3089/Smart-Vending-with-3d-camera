@@ -1,0 +1,78 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SVM1.MainWindow"
+        Title="MainWindow" Height="1920" Width="1080" MinHeight="1920" MinWidth="1080"  
+    WindowStartupLocation="CenterScreen" Closing="Window_Closing_1" WindowStyle="None" ResizeMode="NoResize" >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\GlassButton.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="vm_background.jpg"/>
+    </Window.Background>
+
+    <Grid>
+        <StackPanel Orientation="vertical">
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <StackPanel  Orientation="vertical" Margin="200,100">
+                <Label Content="Welcome"     FontSize="55" FontFamily="Segoe UI Black" Foreground="#FFF9F9FF" HorizontalContentAlignment="Center" HorizontalAlignment="Center" />
+                <Label x:Name="lblName" Content="Shailesh"   FontSize="55" FontFamily="Segoe UI Black" Foreground="#FFF9F9FF" HorizontalContentAlignment="Center" HorizontalAlignment="Center" />
+            </StackPanel>
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <Canvas Width="550" ClipToBounds="True"  Height="550" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image x:Name="imgColorStream" Source="03.jpg" HorizontalAlignment="Center" Stretch="UniformToFill" VerticalAlignment="Center" Height="550" Width="550"  >
+                    <Image.Clip>
+                        <EllipseGeometry Center="275,275" RadiusX="275" RadiusY="275" />
+                    </Image.Clip>
+                </Image>
+                <Rectangle x:Name="rectFaceMarker" Fill="#00000000" Height="50" Stroke="LightGreen" Width="50" StrokeThickness="2"/>
+                <Label x:Name="lblFloatingId" Foreground="LightGreen" Background="#00000000" FontWeight="Bold"/>
+
+            </Canvas>
+            <Canvas>
+                <ToggleButton Name="btnpop" IsChecked="{Binding IsOpen, ElementName=pup}" Content="Register User" Margin="500,10,0,0" HorizontalAlignment="Center" />
+                <Popup Placement="Bottom" PlacementTarget="{Binding ElementName=btnpop}" AllowsTransparency="True"  PopupAnimation="Fade" x:Name="pup" Margin="100" Opened="pup_Opened">
+                    <StackPanel>
+                        <TextBox x:Name="txtUserName" Height="50"  Width="500" FontFamily="Arial Black" FontSize="40"></TextBox>
+                        <Button Content="Save" Click="Button_Click"/>
+                    </StackPanel>
+                </Popup>
+                <Button Name="UnReg" Content="UnRegister" Click="UnReg_Click" Canvas.Left="1005" Canvas.Top="13"/>
+                <Button Name="btnSearch" Content="Search" Click="btnSearch_Click" Canvas.Left="1" Canvas.Top="9" />
+            </Canvas>
+            <Canvas>
+                <Image x:Name="imgFace" Source="Resources\shame.png" Canvas.Left="484" Canvas.Top="127" RenderTransformOrigin="0.906,0.469"></Image>
+            </Canvas>
+
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!--<Border x:Name="bdrPictureBorder" BorderBrush="Red" BorderThickness="10" Margin="10">-->
+            <!-- </Border>-->
+            <!--<StackPanel RenderTransformOrigin="0.5,0.5" Width="250">
+                <Label x:Name="lblUserId" Content="-" FontSize="18" Foreground="White" HorizontalAlignment="Center"/>
+                <Label x:Name="lblNumFacesDetected" Content="-" FontSize="18" Foreground="White" HorizontalAlignment="Center"/>
+                <Label x:Name="lblDatabaseState" Content="-" FontSize="18" Foreground="White" HorizontalAlignment="Center"/>
+                <CheckBox x:Name="chkShowFaceMarker" FontSize="16" Foreground="White" Content="Show face marker" Margin="0,60,0,0" HorizontalAlignment="Center" />
+                <Button x:Name="btnRegister" Content="Register User" Click="btnRegister_Click" Width="150" Margin="5,10,10,0" Height="30" FontSize="16" HorizontalAlignment="Center"/>
+                <Button x:Name="btnUnregister" Content="Unregister User" Click="btnUnregister_Click" Width="150" Margin="5,10,10,0" Height="30" FontSize="16" HorizontalAlignment="Center"/>
+                <Button x:Name="btnSaveDatabase" Content="Save Database" Click="btnSaveDatabase_Click" Width="150" Margin="5,10,10,0" Height="30" FontSize="16" HorizontalAlignment="Center"/>
+                <Button x:Name="btnDeleteDatabase" Content="Delete Database" Width="150" Margin="5,10,10,0" Height="30" FontSize="16" Click="btnDeleteDatabase_Click" HorizontalAlignment="Center"/>
+                <Button x:Name="btnExit" Content="Exit"  Width="150" Margin="5,10,10,0" Height="30" FontSize="16" Click="btnExit_Click" HorizontalAlignment="Center"/>
+            </StackPanel>-->
+        </StackPanel>
+    </Grid>
+
+</Window>
